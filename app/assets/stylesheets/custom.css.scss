@@ -1,0 +1,25 @@
+.container-fluid {
+    background-color: #037B15;
+}
+
+.center {
+    text-align: center;
+}
+
+.jumbotron {
+    background-color: lightgray;
+}
+
+#logo {
+    float: left;
+    font-size: 1.7em;
+    color: #112233;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    font-weight: bold;
+}
+
+#logo:hover {
+    color: #413511;
+    text-decoration: none;
+}
