@@ -8,6 +8,9 @@
 
 .jumbotron {
     background-color: lightgray;
+    background-image: asset-url('cover1.jpg');
+    background-size: cover;
+    height: 300px;
 }
 
 #logo {
@@ -22,4 +25,22 @@
 #logo:hover {
     color: #413511;
     text-decoration: none;
+}
+
+.jumbotron h1, h2 {
+    color:#112233;
+    text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: -1px;
+    font-weight: bold;
+}
+
+.btn-xlarge {
+    background-color: #909724;
+}
+
+.btn-xlarge:hover {
+    background-color: #fff;
+    text-decoration: none;
+    color: #037B15;
 }
