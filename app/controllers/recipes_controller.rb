@@ -16,11 +16,31 @@ class RecipesController < ApplicationController
         @recipe = Recipe.new(recipes_params)
         @recipe.chef = Chef.first
         if @recipe.save
-            flash[:success] = "recipe created successfully"
+            flash[:success] = "recipe created successfully!"
             redirect_to recipe_path(@recipe)
         else
             render 'new', status: 300
         end
+    end
+
+    def edit
+        @recipe = Recipe.find(params[:id])
+    end
+
+    def update
+        @recipe = Recipe.find(params[:id])
+        if @recipe.update(recipes_params)
+            flash[:success] = "recipe updated successfully!"
+            redirect_to recipe_path(@recipe)
+        else
+            render 'edit', status: 300
+        end
+    end
+
+    def destroy
+        Recipe.find(params[:id]).destroy
+        flash[:success] = "recipe deleted successfully!"
+        redirect_to recipes_path
     end
 
     private
