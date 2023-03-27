@@ -17,9 +17,11 @@
                                 <%= pluralize(chef.recipes.count, "recipe") if chef.recipes %>
                             </small>
                         </li>
-                        <li>
-                            <%= link_to ('Delete this chef'), chef_path(chef), data: { "turbo-method": :delete, turbo_confirm: "Are you sure you want to delete the chef and associated recipes?" }, class: "btn btn-xs" %>
-                        </li>
+                        <% if logged_in? && current_chef.admin? && !chef.admin? %>
+                            <li>
+                                <%= link_to ('Delete this chef'), chef_path(chef), data: { "turbo-method": :delete, turbo_confirm: "Are you sure you want to delete the chef and associated recipes?" }, class: "btn btn-xs" %>
+                            </li>
+                        <% end %>
                     </div>
                 </div>
             </ul>
