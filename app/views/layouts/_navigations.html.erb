@@ -14,40 +14,54 @@
         <li class="nav-item">
           <%= link_to "Chefs", chefs_path, class: "nav-link" %>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Recipes
-          </a>
-          <ul class="dropdown-menu">
-            <li><%= link_to "Create New recipe", new_recipe_path %></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><%= link_to "Show All Recipes", recipes_path %></li>
-          </ul>
+        <li class="nav-item">
+          <%= link_to "All Recipes", recipes_path, class: "nav-link" %>
         </li>
-        <%# <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
-        </li> %>
+        <% if logged_in? %>
+          <li class="nav-item dropdown">
+            <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              Recipes
+            </a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Create New recipe", new_recipe_path %></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><%= link_to "Show All Recipes", recipes_path %></li>
+            </ul>
+          </li>
+        <% end %>
       </ul>
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
+      <div class="dropdown text-end">
       <ul class="nav navbar-nav navbar-right">
-        <% if false %>
+        <% if logged_in? %>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_chef.chefname.capitalize %>'s Profile <%= "Admin" if current_chef.admin? %><span class="caret"></span></a>
+            <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+              <%= current_chef.chefname.capitalize %>'s Profile <%#= "Admin" if current_chef.admin? %>
+              <span class="caret"></span>
+            </a>
             <ul class="dropdown-menu">
-              <li><%= link_to "View your profile", chef_path(current_chef) %></li>
-              <li><%= link_to "Edit your profile", edit_chef_path(current_chef) %></li>
-              <li><a href="#">Something else here</a></li>
+              <li>
+                <%= link_to "View your profile", chef_path(current_chef) %>
+              </li>
+              <li>
+                <%= link_to "Edit your profile", edit_chef_path(current_chef) %>
+              </li>
               <li role="separator" class="divider"></li>
-              <li><%= link_to "Log out", logout_path, data: { "turbo-method": :delete } %></li>
+              <li>
+                <%= link_to "Log out", logout_path, data: { "turbo-method": :delete } %>
+              </li>
             </ul>
           </li>
         <% else %>
-          <li><%= link_to "Log in", login_path %></li>  
+          <li>
+            <%= link_to "Log in", login_path %>
+          </li>  
         <% end %>
-      </ul>
+      </ul>      
     </div>
   </div>
 </nav>
