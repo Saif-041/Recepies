@@ -78,7 +78,7 @@ footer small {
 }
 
 footer ul {
-  float: right;
+  float: left;
   list-style: none;
 }
 
@@ -169,4 +169,33 @@ footer ul li {
 .small-image {
   max-width: 25px;
   height: auto;
+}
+
+.row {
+  background-color: #e08e79c4;
+}
+
+#footer {
+  background-color: #fff;
+}
+
+ul {
+  list-style: none;
+  align-items: center;
+}
+
+ul > li.disabled {
+  padding-left: 3%;
+  padding-right: 3%;
+  align-content: end;
+  justify-items: flex-end;
+}
+
+.pagination {
+  align-items:end;
+  align-content: end;
+}
+
+.pagination > li {
+  padding-left: 5%;
 }

@@ -1,6 +1,6 @@
 <%= render 'shared/errors', obj: @ingredient %>
  
-<div class="row">
+<div class="rows">
     <div class="col-md-12">
         <%= form_for(@ingredient, :html => {class: "form-horizontal", role: "form"}) do |f| %>
             <div class="form-group">
@@ -19,7 +19,7 @@
             </div>
         <% end %>
         <div class="col-md-offset-4 col-md-4 colormatch">
-            [ <%= link_to "Cancel Request and Back to Recipes listing.", recipes_path %> ]
+            [ <%= link_to "Cancel Request and Back to Ingredients listing.", ingredients_path %> ]
         </div>
     </div>
 </div>

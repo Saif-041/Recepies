@@ -1,7 +1,14 @@
 <%= render 'shared/page_title', title: "Available Ingredient's" %>
 
 <div align="center">
-    <%= will_paginate %>
+
+    <div class="col-lg-8 col-md-8 col-sm-7 col-xs-6 padding-zero">
+        <ul class=”pagination”>
+            <li class="disabled"> 
+                <%= will_paginate(@chef_recipes, previous_label: "&laquo;", next_label: "&raquo;", outer_window: 1, inner_window: 0, class: "small-font" ) %>
+            </li>
+        </ul>
+    </div>
         <% @ingredients.each do |ing| %>
             <ul class="listing">
                 <div class="row">
@@ -23,5 +30,12 @@
                 </div>
             </ul>
         <% end %>
-    <%= will_paginate %>
+    <div class="col-lg-8 col-md-8 col-sm-7 col-xs-6 padding-zero">
+        <ul class=”pagination”>
+            <li class="disabled"> 
+                <%= will_paginate(@chef_recipes, previous_label: "&laquo;", next_label: "&raquo;", outer_window: 1, inner_window: 0, class: "small-font" ) %>
+            </li>
+        </ul>
+    </div>
+    <%#= will_paginate %>
 </div>

@@ -1,5 +1,9 @@
-<div align="center">
-    <%= will-paginate comments %>
+<div class="col-lg-8 col-md-8 col-sm-7 col-xs-6 padding-zero">
+    <ul class=”pagination”>
+        <li class="disabled"> 
+            <%= will_paginate(comments, previous_label: "&laquo;", next_label: "&raquo;", outer_window: 1, inner_window: 0, class: "small-font" ) %>
+        </li>
+    </ul>
 </div>
 
 <% comments.each do |comment| %>
